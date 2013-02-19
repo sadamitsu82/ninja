@@ -1,9 +1,20 @@
-!!!
+doctype 5
 html
   head
+    meta(http-equiv="Content-Type",content="text/html; charset=UTF-8")
+    meta(charset="utf-8")
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(type='text/javascript', src='http://code.jquery.com/jquery-1.6.2.min.js')
+    link(rel='stylesheet', href='/css/style.css')
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
     script(type='text/javascript', src='/socket.io/socket.io.js')
-    script(type='text/javascript', src='/javascripts/paint.js')
-  body!= body
+    script(src="/js/message.js")
+    script(src="/js/swfobject.js")
+    script(src="/js/flash.js")
+  body
+    block content
+    div#contents
+    div#transportName
+    input#msg
+    input#submitButton(type='button',value='submit!')
+    div#messageArea
+      ul
