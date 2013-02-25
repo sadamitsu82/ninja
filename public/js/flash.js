@@ -1,3 +1,6 @@
 window.onload=function(){
-		swfobject.embedSWF("/swf/index.swf", "contents", "1000", "600", "9");
+		var flashvars = {};
+		var params = {allowscriptaccess: "always"};
+		var attributes = {};
+		swfobject.embedSWF("/swf/index.swf", "contents", "200", "200", "10", "", flashvars, params, attributes);
 };
