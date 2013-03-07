@@ -4,8 +4,6 @@
  */
 
 var express = require('express')
-  , socketio = require('socket.io')
-  , clientio = require('socket.io-client')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
@@ -35,8 +33,14 @@ app.get('/users', user.list);
 var server = http.createServer(app).listen(app.get('port'), function(){
 console.log("Express server listening on port " + app.get('port'));
 });
-var socket = require('socket.io').listen(server);
-socket.on('connection', function(client) {
+var io = require('socket.io').listen(server);
+io.configure(function() {
+  io.set('transports', ['websocket', 'flashsocket', 'htmlfile', 'xhr-polling', 'jsonp-polling']);
+  io.set('flashPolicyServer', false);
+});
+
+
+io.on('connection', function(client) {
  client.on('message', function(event){
    // クライアントからのメッセージをコンソールに出力
    console.log(event.message);
