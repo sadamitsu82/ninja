@@ -36,7 +36,6 @@ console.log("Express server listening on port " + app.get('port'));
 var io = require('socket.io').listen(server);
 io.configure(function() {
   io.set('transports', ['websocket', 'flashsocket', 'htmlfile', 'xhr-polling', 'jsonp-polling']);
-  io.set('flashPolicyServer', false);
 });
 
 
